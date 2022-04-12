@@ -13,7 +13,7 @@ function PreHomepage() {
     useEffect(() => {
 
         async function DidMount() {
-            if (localStorage.getItem('username') !== null) {
+            if (localStorage.getItem('username')) {
                 navigate('/home');
             }
         }
