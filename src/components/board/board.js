@@ -23,12 +23,12 @@ function Board({ appState, setAppState }) {
       column.name = element.value;
       column.cards = [];
 
-      let boards = [];
-      for (let i = 0; i < appState.boards.length; i++) {
-        boards[i] = appState.boards[i].slice();
-      }
+      let boards = [...appState.boards];
+        // for (let i = 0; i < appState.boards.length; i++) {
+        //   boards[i] = appState.boards[i];
+        // }
       boards[appState.current_board].columns.push(column);
-      setAppState({ ...appState, boards });
+      setAppState({ ...appState, boards});
     }
   }
 

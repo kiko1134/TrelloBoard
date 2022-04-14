@@ -32,15 +32,17 @@ export default function CreateBoard({appState, setAppState}) {
                     boxShadow: "0 0 .25em rgba(0, 0, 0, .25)",
                     boxSizing: "border-box"
                 }}>
+                <div className="card-body text-dark p-5 text-center">
                 <h2 className="fw-bold py-3">Create a Board</h2>
                 <Form className='container py-5'>
                     <Form.Group className="form-outline form-white mb-4" controlId="boardInputName">
                         <Form.Control type="text" placeholder="Board name" onChange={(event)=>setBoardName(event.target.value)} value={boardName}/>
                     </Form.Group>
                     <button type="button" className="btn btn-outline-secondary btn-lg px-5 text-light" style={{backgroundColor: "#4126ab"}} onClick={()=>createBoard()}>
-                        Submit
+                        Create
                     </button>
                 </Form>
+                </div>
             </div>
             </div>
             </div>
