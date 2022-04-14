@@ -36,7 +36,7 @@ function Navbar() {
                             </div>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" href="/">Create</a>
+                            <a className="nav-link active" href="/createBoard">Create</a>
                         </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">

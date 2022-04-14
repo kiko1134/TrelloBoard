@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
-function PreHomepage() {
+function PreHomepage({appState, setAppState}) {
 
     let navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -13,7 +13,8 @@ function PreHomepage() {
     useEffect(() => {
 
         async function DidMount() {
-            if (localStorage.getItem('username') !== null) {
+            if (localStorage.getItem('username')) {
+                isBoardExisting();
                 navigate('/home');
             }
         }
@@ -26,7 +27,14 @@ function PreHomepage() {
         event.preventDefault();
         localStorage.setItem('username', username);
         console.log(username);
-        window.location.href = '/home';
+        isBoardExisting();
+        navigate('/home');
+    }
+
+    function isBoardExisting(){
+        if(appState.boards.length===0){
+            window.location.href = '/createBoard'
+        }
     }
 
     return (
