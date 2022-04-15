@@ -1,19 +1,16 @@
 import React from "react";
-import Card from "../card/card";
+import Column from "../column/column";
 
 function Board({ appState, setAppState }) {
-  // localStorage.clear()
 
-  let board = appState.boards[appState.current_board]
-
-  function ShowListInput(bool, index) {
+  function ShowListInput(bool) {
     if (bool) {
-      document.getElementById('addList' + index).style.display = "block";
-      document.getElementById('addColumn' + index).style.display = "none";
+      document.getElementById('addList').style.display = "block";
+      document.getElementById('addColumn').style.display = "none";
     }
     else {
-      document.getElementById('addList' + index).style.display = "none";
-      document.getElementById('addColumn' + index).style.display = "flex";
+      document.getElementById('addList').style.display = "none";
+      document.getElementById('addColumn').style.display = "flex";
     }
   }
 
@@ -26,18 +23,8 @@ function Board({ appState, setAppState }) {
       let boards = [...appState.boards];
       boards[appState.current_board].columns.push(column);
       setAppState({ ...appState, boards });
-    }
-  }
-
-  function AddCard(element, index) {
-    if (element.value.trim()) {
-      let card = {}
-      card.name = element.value;
-      card.description = '';
-
-      let boards = [...appState.boards];
-      boards[appState.current_board].columns[index].cards.push(card);
-      setAppState({ ...appState, boards });
+      element.value='';
+      element.focus();
     }
   }
 
@@ -46,42 +33,22 @@ function Board({ appState, setAppState }) {
 
       <div id="columns">
         {appState.boards[appState.current_board] ?
-          appState.boards[appState.current_board].columns.map((element, index) =>
-            <div className="js-column js-list list" id="column">
-              <h2>{element.name}</h2>
-              <div id="cards">
-                {element.cards.map((card) => 
-                  <Card content={card} />
-                )}
-              </div>
-              <div className="js-column">
-                <div id={`addColumn${index + 1}`} className=" addColumn" onClick={() => ShowListInput(true, index + 1)}>
-                  <i className="fas fa-plus"></i>
-                  <p>Add another list</p>
-                </div>
-                <div id={`addList${index + 1}`} className="addList">
-                  <input type="text" id="name" placeholder="Enter list title..." />
-                  <div className="js-list ">
-                    <button className="btn btn-primary" onClick={(event) => AddCard(event.target.parentElement.previousSibling, index)}>Add card</button>
-                    <i className="fas fa-times icon" onClick={() => ShowListInput(false, index + 1)}></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+          appState.boards[appState.current_board].columns.map((column, index) =>
+            <Column column={column} columnIndex={index} appState={appState} setAppState={setAppState} key={index} />
           ) :
-          <p>form</p>
+          <></>
         }
       </div>
       <div className="js-column">
-        <div id="addColumn0" className="js-list addColumn" onClick={() => ShowListInput(true, 0)}>
+        <div id="addColumn" className="js-list addColumn" onClick={() => ShowListInput(true)}>
           <i className="fas fa-plus"></i>
           <p>Add another list</p>
         </div>
-        <div id="addList0" className="js-list addList">
+        <div id="addList" className="js-list addList">
           <input type="text" id="name" placeholder="Enter list title..." />
           <div className="js-list ">
             <button className="btn btn-primary" onClick={(event) => addColumn(event.target.parentElement.previousSibling)}>Add list</button>
-            <i className="fas fa-times icon" onClick={() => ShowListInput(false, 0)}></i>
+            <i className="fas fa-times icon" onClick={() => ShowListInput(false)}></i>
           </div>
         </div>
       </div>
