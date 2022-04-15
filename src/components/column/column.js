@@ -32,7 +32,7 @@ export default function Column({ column, columnIndex, appState, setAppState }) {
             <h2>{column.name}</h2>
             <div id="cards">
                 {column.cards.map((card, index) =>
-                    <Card content={card}  key={index}/>
+                    <Card card={card} cardIndex={index} columnIndex={columnIndex} appState={appState} setAppState={setAppState} key={index}/>
                 )}
             </div>
             <div className="js-column">
