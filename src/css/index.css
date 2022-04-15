@@ -35,7 +35,7 @@ hr{
     max-height: 100%;
 }
 
-#addColumn{
+.addColumn{
     color: white;
     display: flex;
     padding: 6px 8px;
@@ -61,14 +61,14 @@ p{
     font-size: larger;
 }
 
-#addList{
+.addList{
     background-color: #ebecf0;
     padding: 4px;
     border-radius: 4px;
     display: none;
 }
 
-#addList input{
+.addList input{
     margin-bottom: 4px;
     padding: 8px 12px;
     font-size: 20px;
@@ -108,3 +108,20 @@ p{
     max-height: 100%;
 }
 
+#columns .addColumn p, #columns i{
+    color:black;
+}
+
+.card{
+    width: 264px;
+    border-radius: 3px;
+    padding: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 4px;
+}
+
+.card p{
+    margin-left: 0;
+    text-align: left;
+}
