@@ -119,9 +119,17 @@ p{
     padding-left: 8px;
     padding-right: 8px;
     margin-bottom: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .card p{
     margin-left: 0;
     text-align: left;
+    width: -webkit-fill-available;
+}
+
+.card i{
+    width: fit-content;
 }

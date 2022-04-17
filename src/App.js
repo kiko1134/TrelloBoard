@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PreHomepage from "./components/beforeHomepage/preHome";
 import Board from "./components/board/board";
 import CreateBoard from "./components/createBoard/createBoard";
+import Navbar from "./components/navbar/navbar";
 
 function App() {
     let [appState, setAppState] = useState(
@@ -17,9 +18,9 @@ function App() {
     )
 
     useEffect(() => {
-            localStorage.setItem('boards', JSON.stringify(appState))
-            console.log(appState.boards[appState.current_board]);
-        }
+        localStorage.setItem('boards', JSON.stringify(appState))
+        console.log(appState.boards[appState.current_board]);
+    }
         , [appState]);
 
     // boards: [
@@ -43,16 +44,18 @@ function App() {
     // setList({...lists, foo:{...lists.foo, foo1:"a"}})
 
     return (
+
         <div className="App">
+            <Navbar appState={appState} setAppState={setAppState} />
             <BrowserRouter>
                 <Routes>
-                    <Route path="/*" element={<PreHomepage appState={appState} setAppState={setAppState}/>}/>
+                    <Route path="/*" element={<PreHomepage appState={appState} setAppState={setAppState} />} />
                     {localStorage.getItem('username') ?
                         <>
-                            <Route path="/home" element={<Board appState={appState} setAppState={setAppState}/>}/>
+                            <Route path="/home" element={<Board appState={appState} setAppState={setAppState} />} />
                             <Route path="/createBoard"
-                                   element={<CreateBoard appState={appState} setAppState={setAppState}/>}/>
-                            <Route path="/contact" element={<h1>Contact</h1>}/>
+                                element={<CreateBoard appState={appState} setAppState={setAppState} />} />
+                            <Route path="/contact" element={<h1>Contact</h1>} />
                         </>
                         :
                         <></>
