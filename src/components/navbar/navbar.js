@@ -1,13 +1,16 @@
-function Navbar() {
-    return (
+import ReactDOM from "react-dom";
+
+export default function Navbar({ appState, setAppState }) {
+
+    return ReactDOM.createPortal(
         <>
             <a className="navbar-brand"><strong>Trello icon</strong></a>
 
 
             <button className="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent-6"
-                    aria-controls="navbarSupportedContent-6" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                data-target="#navbarSupportedContent-6"
+                aria-controls="navbarSupportedContent-6" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" />
             </button>
             {localStorage.getItem('username') ?
@@ -46,8 +49,7 @@ function Navbar() {
                 </div>
                 : <></>
             }
-        </>
+        </>,
+        document.getElementById('navbar')
     );
 }
-
-export default Navbar;
