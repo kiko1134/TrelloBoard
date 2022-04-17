@@ -25,7 +25,11 @@ export default function Navbar({ appState, setAppState }) {
                                 <div className="hr">
                                     <hr />
                                 </div>
-                                <a className="dropdown-item" href="/">Some reent boards...</a>
+                                {appState.boards.map((board, index) => (
+                                    <a className="dropdown-item" href="/home" key={index} onClick={()=>{
+                                        setAppState({...appState, current_board: index})
+                                    }}>{board.name}</a>
+                                ))}
                             </div>
                         </li>
                         <li className="nav-item dropdown">
