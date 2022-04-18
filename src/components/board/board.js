@@ -28,6 +28,8 @@ function Board({ appState, setAppState }) {
     }
   }
 
+
+
   return (
     <div id="columnsHolder">
 

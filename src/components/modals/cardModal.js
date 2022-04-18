@@ -3,6 +3,8 @@ import Modal from 'react-modal'
 
 export default function CardModal({card, cardIndex, columnIndex, appState, setAppState,  cardModalIsOpen, setCardModalOpen}) {
 
+    if(!card) return <></>;
+
     Modal.setAppElement('#root');
     
     return (
