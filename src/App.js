@@ -42,6 +42,7 @@ function App() {
     // appState.boards[appState.current_board]
     // setAppState({ ...appState, current_board: 3 })
     // setList({...lists, foo:{...lists.foo, foo1:"a"}})
+    // localStorage.clear()
 
     return (
 
