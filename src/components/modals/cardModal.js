@@ -1,9 +1,17 @@
 import React from 'react'
 import Modal from 'react-modal'
 
-export default function CardModal({ card, cardIndex, columnIndex, appState, setAppState, cardModalIsOpen, setCardModalOpen }) {
+export default function CardModal({ card, cardIndex, columnIndex, appState, setAppState, cardModalIsOpen, setCardModalOpen}) {
 
   Modal.setAppElement('#root');
+
+  function archiveCard(){
+    let boards = [...appState.boards]
+    boards[appState.current_board].columns[columnIndex].cards = boards[appState.current_board].columns[columnIndex].cards.filter((currentCard)=>currentCard!==card);
+    boards[appState.current_board].archive.push(card);
+    setAppState({...appState, boards});
+    console.log(appState.boards[appState.current_board].archive);
+  }
 
   return (
     <Modal isOpen={cardModalIsOpen} shouldCloseOnOverlayClick={false} onRequestClose={() => setCardModalOpen(false)}>
@@ -36,7 +44,7 @@ export default function CardModal({ card, cardIndex, columnIndex, appState, setA
             <h4>Actions</h4>
             <div className='action'>
               <i className='fas fa-archive'> </i>
-              <p>Archive</p>
+              <p onClick={archiveCard}>Archive</p>
             </div>
           </div>
         </div>
