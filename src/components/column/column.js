@@ -19,11 +19,15 @@ export default function Column({ column, columnIndex, appState, setAppState }) {
             let card = {}
             card.name = element.value;
             card.description = '';
+            card.labels = [];
+            card.created  = new Date().toLocaleString();
+            card.updated  = new Date().toLocaleString();
 
             let boards = [...appState.boards];
             boards[appState.current_board].columns[index].cards.push(card);
-            setAppState({ ...appState, boards });
-            element.value='';
+            setAppState({ ...appState, boards});
+            element.value = '';
+            element.focus();
         }
     }
 
@@ -32,13 +36,13 @@ export default function Column({ column, columnIndex, appState, setAppState }) {
             <h2>{column.name}</h2>
             <div id="cards">
                 {column.cards.map((card, index) =>
-                    <Card card={card} cardIndex={index} columnIndex={columnIndex} appState={appState} setAppState={setAppState} key={index}/>
+                    <Card card={card} cardIndex={index} columnIndex={columnIndex} appState={appState} setAppState={setAppState} key={index} />
                 )}
             </div>
             <div className="js-column">
                 <div id={`addColumn${columnIndex}`} className=" addColumn" onClick={() => ShowCardInput(true, columnIndex)}>
                     <i className="fas fa-plus"></i>
-                    <p>Add another list</p>
+                    <p>Add another card</p>
                 </div>
                 <div id={`addList${columnIndex}`} className="addList">
                     <input type="text" id="name" placeholder="Enter list title..." />

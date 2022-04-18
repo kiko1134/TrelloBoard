@@ -1,7 +1,7 @@
 import React from "react";
 import Column from "../column/column";
 
-function Board({ appState, setAppState }) {
+export default function Board({ appState, setAppState }) {
 
   function ShowListInput(bool) {
     if (bool) {
@@ -55,5 +55,3 @@ function Board({ appState, setAppState }) {
     </div>
   );
 }
-
-export default Board;

@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2286x1600/24baa6609b89fb8eb0cc0aceb70eaf36/photo-1557682250-33bd709cbe85.jpg");
     background-attachment: fixed;
     background-position: center;
@@ -10,7 +10,7 @@ body{
     word-break: break-all;
 }
 
-p{
+p {
     text-align: center;
 }
 
@@ -18,24 +18,24 @@ nav {
     background-color: #4126ab;
 }
 
-hr{
+hr {
     width: 90%;
 }
 
-.active{
+.active {
     background-color: #6751bc;
     border-radius: 4px;
 }
 
-#columnsHolder{
+#columnsHolder {
     display: flex;
     flex-direction: row;
     justify-content: start;
-    overflow: auto; 
+    overflow: auto;
     max-height: 100%;
 }
 
-.addColumn{
+.addColumn {
     color: white;
     display: flex;
     padding: 6px 8px;
@@ -46,29 +46,31 @@ hr{
     align-self: flex-end;
 }
 
-p{
+p {
     margin-left: 3%;
     margin-bottom: 0;
     font-size: larger;
 }
 
- #root, .App{
+#root,
+.App {
     height: fit-content;
     max-height: 100%;
 }
-.fas{
+
+.fas {
     margin: 2%;
     font-size: larger;
 }
 
-.addList{
+.addList {
     background-color: #ebecf0;
     padding: 4px;
     border-radius: 4px;
     display: none;
 }
 
-.addList input{
+.addList input {
     margin-bottom: 4px;
     padding: 8px 12px;
     font-size: 20px;
@@ -80,39 +82,40 @@ p{
     height: 35px;
 }
 
-.js-list{
+.js-list {
     width: 272px;
     padding: 4px;
     margin: 4px;
 }
 
-.js-column{
-    height:fit-content;
+.js-column {
+    height: fit-content;
     max-height: 100%;
 }
 
-#columns{
+#columns {
     display: flex;
     width: fit-content;
 }
 
-.list{
+.list {
     background-color: #ebecf0;
     margin: 4px;
     border-radius: 3px;
 }
 
-#column{
+#column {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 100%;
 }
 
-#columns .addColumn p, #columns i{
-    color:black;
+#columns .addColumn p,
+#columns i {
+    color: black;
 }
 
-.card{
+.card {
     width: 264px;
     border-radius: 3px;
     padding: 6px;
@@ -124,14 +127,64 @@ p{
     justify-content: space-between;
 }
 
-.card p{
+.card p {
     margin-left: 0;
     text-align: left;
     width: -webkit-fill-available;
 }
 
-.card i{
+.card i {
     width: fit-content;
+}
+
+.CardModal,
+.CardModal .actions,
+.CardModal .descriptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.CardModal i {
+    margin: 0;
+}
+
+.CardModal p {
+    width: max-content;
+    margin-left: 15%;
+}
+
+.CardModal .content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.CardModal .action {
+    display: flex;
+    width: 200px;
+    background-color: #091e420a;
+    padding: 6px 8px;
+    border-radius: 3px;
+    margin-bottom: 4%;
+}
+
+.CardModal .action p {
+    margin-left: 0;
+}
+
+.CardModal .action i {
+    margin-top: 3%;
+    margin-right: 2%;
+}
+
+.ReactModal__Content--after-open {
+    width: 40%;
+    margin: auto;
 }
 
 .ReactModal__Content--after-open{
