@@ -20,8 +20,8 @@ export default function Column({ column, columnIndex, appState, setAppState }) {
             card.name = element.value;
             card.description = '';
             card.labels = [];
-            card.created  = new Date().toLocaleString();
-            card.updated  = new Date().toLocaleString();
+            card.created  = Date.now();
+            card.updated  = Date.now();
 
             let boards = [...appState.boards];
             boards[appState.current_board].columns[index].cards.push(card);
