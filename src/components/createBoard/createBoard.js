@@ -13,6 +13,7 @@ export default function CreateBoard({appState, setAppState}) {
             const board = {
                 name: boardName,
                 columns: [],
+                archive: [],
             };
             setAppState({...appState, boards: appState.boards.concat([board]), current_board: appState.boards.length});
             navigate('/home');

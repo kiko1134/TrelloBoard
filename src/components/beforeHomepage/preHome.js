@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
-function PreHomepage({appState, setAppState}) {
+export default function PreHomepage({appState, setAppState}) {
 
     let navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -89,5 +89,3 @@ function PreHomepage({appState, setAppState}) {
         </section>
     )
 }
-
-export default PreHomepage
