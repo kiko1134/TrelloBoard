@@ -133,3 +133,9 @@ p{
 .card i{
     width: fit-content;
 }
+
+.ReactModal__Content--after-open{
+    width: 40%;
+    height: 30%;
+    margin: auto;
+}
