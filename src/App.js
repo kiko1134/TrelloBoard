@@ -6,6 +6,7 @@ import CreateBoard from "./components/createBoard/createBoard";
 import Navbar from "./components/navbar/navbar";
 
 function App() {
+
     let [appState, setAppState] = useState(
         localStorage.getItem('boards') ?
             JSON.parse(localStorage.getItem('boards'))
@@ -16,6 +17,7 @@ function App() {
                 selectedCardForEdit: null
             }
     )
+    console.log(appState);
 
     useEffect(() => {
         localStorage.setItem('boards', JSON.stringify(appState))
