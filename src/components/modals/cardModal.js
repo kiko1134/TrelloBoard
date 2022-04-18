@@ -30,8 +30,8 @@ export default function CardModal({ card, cardIndex, columnIndex, appState, setA
             </div>
             <div className='action'>
               <i className='far fa-clock'> </i>
-              <p>Created: {card.created}</p>
-              <p>Updated: {card.updated}</p>
+              <p>Created: {new Date(card.created).toLocaleString()}</p>
+              <p>Updated: {new Date(card.updated).toLocaleString()}</p>
             </div>
             <h4>Actions</h4>
             <div className='action'>

@@ -7,10 +7,14 @@ export default function CardNameModal({card, cardIndex, columnIndex, appState, s
 
     const [cardName, setCardName] = useState(card.name);
     function changeName(){
-        let boards = [...appState.boards];
-        boards[appState.current_board].columns[columnIndex].cards[cardIndex].name = cardName;
-        console.log('New name must be: ', cardName)
-        setAppState({ ...appState, boards });
+        if(cardName.trim()) {
+            let boards = [...appState.boards];
+            boards[appState.current_board].columns[columnIndex].cards[cardIndex].name = cardName;
+            boards[appState.current_board].columns[columnIndex].cards[cardIndex].updated = Date.now();
+            console.log('New name must be: ', cardName)
+            setAppState({...appState, boards});
+            setCardNameModalOpen(false);
+        }
     }
 
 
@@ -37,7 +41,6 @@ export default function CardNameModal({card, cardIndex, columnIndex, appState, s
                 <br/>
                     <button type="button" className="btn btn-outline-secondary btn-lg px-5 text-light" onClick={()=>{
                         changeName();
-                        setCardNameModalOpen(false);
                     }} style={{backgroundColor: "#4126ab"}}>
                         Change Card name
                     </button>
