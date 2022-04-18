@@ -1,13 +1,24 @@
 import ReactDOM from "react-dom";
+import CardModal from "../modals/cardModal";
+import React, {useState} from "react";
 
 export default function Navbar({appState, setAppState}) {
 
-    function isCardRecent(card, index) {
+    const [cardModalIsOpen, setCardModalOpen] = useState(false)
+
+    function isCardRecent(card, index, columnIndex) {
+        console.log('Column Index is: ' + columnIndex);
         let curr_time = Date.now();
         let card_time = card.updated;
         console.log(card_time);
         if (curr_time - card_time < 300000) {
-            return <a className="dropdown-item" href="/home" key={index}>{card.name}</a>
+            return(
+                <div>
+                    <a className="dropdown-item" key={index} onClick={() => setCardModalOpen(true)}>{card.name}</a>
+                    <CardModal card={card} cardIndex={index} columnIndex={columnIndex} appState={appState}
+                               setAppState={setAppState} cardModalIsOpen={cardModalIsOpen} setCardModalOpen={setCardModalOpen} />
+                </div>
+            )
         }
     }
 
@@ -54,10 +65,10 @@ export default function Navbar({appState, setAppState}) {
                                 <p>Recent Cards</p>
                                 <hr/>
                                 {appState.boards[appState.current_board].columns?
-                                    appState.boards[appState.current_board].columns.map((column) => (
+                                    appState.boards[appState.current_board].columns.map((column, columnIndex) => (
                                         column.cards?
                                             column.cards.map((card, index) => (
-                                                isCardRecent(card, index)
+                                                isCardRecent(card, index, columnIndex)
                                             )):<></>
                                     ))
                                     :<></>
