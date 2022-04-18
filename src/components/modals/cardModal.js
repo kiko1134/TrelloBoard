@@ -11,6 +11,8 @@ export default function CardModal({
                                       setCardModalOpen
                                   }) {
 
+    if(!card) return <></>;
+
     Modal.setAppElement('#root');
 
     function archiveCard() {
