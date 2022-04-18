@@ -91,9 +91,6 @@ export default function Navbar({ appState, setAppState }) {
     }
   }
 
-
-    const [cardModalIsOpen, setCardModalOpen] = useState(false)
-
     function isCardRecent(card, index, columnIndex) {
         console.log('Column Index is: ' + columnIndex);
         let curr_time = Date.now();
@@ -197,9 +194,9 @@ export default function Navbar({ appState, setAppState }) {
                     />
                 </form>
                 </div>
-                ) : (
+                 :
                 <></>
-                )}
+                }
         </>,
         document.getElementById("navbar")
     );
