@@ -11,7 +11,6 @@ export default function CardNameModal({card, cardIndex, columnIndex, appState, s
             let boards = [...appState.boards];
             boards[appState.current_board].columns[columnIndex].cards[cardIndex].name = cardName;
             boards[appState.current_board].columns[columnIndex].cards[cardIndex].updated = Date.now();
-            console.log('New name must be: ', cardName)
             setAppState({...appState, boards});
             setCardNameModalOpen(false);
         }

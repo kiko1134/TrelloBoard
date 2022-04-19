@@ -43,13 +43,11 @@ export default function Navbar({ appState, setAppState }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
-  console.log(boards[appState.current_board].columns);
 
   const result = filterCards(
     boards[appState.current_board].columns,
     searchQuery
   );
-  console.log(result);
 
   const handleInput = (event) => {
     setSearchQuery(event.target.value);
@@ -69,8 +67,8 @@ export default function Navbar({ appState, setAppState }) {
           style={{
             position: "absolute",
             height: "150px",
-            width: "300px",
-            marginTop: "13%",
+            width: "200px",
+            marginTop: "10%",
             backgroundColor: "white",
             overflow: "auto",
           }}
@@ -92,7 +90,6 @@ export default function Navbar({ appState, setAppState }) {
   }
 
     function isCardRecent(card, index, columnIndex) {
-        console.log('Column Index is: ' + columnIndex);
         let curr_time = Date.now();
         let card_time = card.updated;
         console.log(card_time);
@@ -109,7 +106,7 @@ export default function Navbar({ appState, setAppState }) {
 
     return ReactDOM.createPortal(
         <>
-            <a className="navbar-brand"><strong>Trello icon</strong></a>
+            <a className="navbar-brand"><i className="fab fa-trello"/><strong> Trello</strong></a>
 
 
             <button className="navbar-toggler" type="button" data-toggle="collapse"
@@ -174,12 +171,6 @@ export default function Navbar({ appState, setAppState }) {
                         onChange={handleInput}
                     />
 
-                    <button
-                        className="btn btn-outline-success my-2 my-sm-0"
-                        type="submit"
-                    >
-                        Search
-                    </button>
 
                     {dropdowElement()}
 

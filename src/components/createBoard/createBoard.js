@@ -21,7 +21,7 @@ export default function CreateBoard({appState, setAppState}) {
     }
 
     return (
-        <section className="gradient-custom">
+        <section className="gradient-custom" >
             <div className="container py-5" style={{marginTop: "12rem"}}>
             <div className="row d-flex justify-content-center align-items-center">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -31,7 +31,8 @@ export default function CreateBoard({appState, setAppState}) {
                     borderRadius: "15px",
                     backgroundColor: "rgba(255, 255, 255, 0.8)",
                     boxShadow: "0 0 .25em rgba(0, 0, 0, .25)",
-                    boxSizing: "border-box"
+                    boxSizing: "border-box",
+                    width: "100%"
                 }}>
                 <div className="card-body text-dark p-5 text-center">
                 <h2 className="fw-bold py-3">Create a Board</h2>
