@@ -48,7 +48,8 @@ export default function PreHomepage({appState, setAppState}) {
                                 borderRadius: "15px",
                                 backgroundColor: "rgba(255, 255, 255, 0.8)",
                                 boxShadow: "0 0 .25em rgba(0, 0, 0, .25)",
-                                boxSizing: "border-box"
+                                boxSizing: "border-box",
+                                width: "100%"
                             }}>
 
                             <div className="card-body text-dark p-5 text-center">
